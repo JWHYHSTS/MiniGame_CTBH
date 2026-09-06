@@ -231,3 +231,25 @@ img,svg,math{max-width:100%}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
 }
+
+/* Stability / performance tuning */
+.app.teacher-mode .light-beams{display:none}
+.app.teacher-mode .cosmos span{animation:none!important;filter:blur(42px);opacity:.08}
+.app.teacher-mode .teacher-screen,.app.teacher-mode .teacher-q,.app.teacher-mode .teacher-toolbar,.app.teacher-mode .test-box{backdrop-filter:none!important}
+@media(max-width:900px){
+  .light-beams{display:none!important}
+  .cosmos span{animation:none!important;filter:blur(44px);opacity:.10}
+  .start-card,.modal-card,.topbar{backdrop-filter:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .cosmos span,.light-beams,.stage-ring,.stage-orbit,.stage-core,.host-orb,.stage-visual:before,.stage-visual:after,.lifeline.armed{animation:none!important}
+}
+
+/* Teacher bank stability: paginate large sets instead of rendering all 15 cards at once. */
+.bank-status{min-height:18px;color:#86a2ca;font-size:11px;line-height:1.4;margin-left:auto}
+.teacher-toolbar button:disabled,.teacher-toolbar select:disabled{opacity:.5;cursor:wait}
+.bank-pager{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 4px 2px}
+.bank-pager button{min-height:42px;border-radius:12px;border:1px solid var(--line);background:#0a1133;color:#fff;padding:0 14px;font-weight:800;cursor:pointer}
+.bank-pager button:disabled{opacity:.35;cursor:not-allowed}
+.bank-pager span{min-width:160px;text-align:center;color:#9eb0d2;font-size:12px;font-weight:800}
+@media(max-width:640px){.bank-status{width:100%;margin-left:0}.bank-pager{display:grid;grid-template-columns:1fr 1fr}.bank-pager span{grid-column:1/-1;grid-row:1;text-align:center}.bank-pager button{width:100%}}
