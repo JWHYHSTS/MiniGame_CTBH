@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07031b" />
+  <title>Chinh Phục Căn Thức – Đấu trường Toán 9</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div class="cosmos" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="light-beams" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <button id="homeBtn" class="icon-btn" type="button" aria-label="Trang chủ">⌂</button>
+      <div class="mini-brand"><span class="mini-gem">√</span><div><b>CHINH PHỤC</b><small>CĂN THỨC</small></div></div>
+      <div class="top-actions">
+        <button id="teacherBtn" class="top-pill" type="button">◆ GV</button>
+        <button id="soundBtn" class="icon-btn" type="button" aria-label="Âm thanh">🔊</button>
+        <button id="settingsBtn" class="icon-btn" type="button" aria-label="Cài đặt">⚙</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen active home-screen">
+        <div class="hero-copy">
+          <div class="eyebrow">TOÁN 9 • CĂN BẬC HAI & CĂN THỨC BẬC HAI</div>
+          <div class="logo-lockup">
+            <span class="logo-top">CHINH PHỤC</span>
+            <span class="logo-main">CĂN THỨC</span>
+            <span class="logo-bottom">ĐẤU TRƯỜNG TOÁN 9</span>
+          </div>
+          <p>15 câu hỏi tăng dần độ khó. Chọn đáp án, chốt lựa chọn, vượt hai mốc an toàn và chạm tới <strong>1.000.000 điểm</strong>.</p>
+          <div class="feature-row">
+            <span>15 CÂU THỬ THÁCH</span><i></i><span>5 QUYỀN TRỢ GIÚP</span><i></i><span>2 MỐC AN TOÀN</span>
+          </div>
+        </div>
+
+        <div class="home-stage" aria-hidden="true">
+          <div class="stage-aura"></div>
+          <div class="stage-ring ring-1"></div><div class="stage-ring ring-2"></div><div class="stage-ring ring-3"></div>
+          <div class="stage-orbit orbit-a"></div><div class="stage-orbit orbit-b"></div>
+          <div class="stage-core"><span>√</span><b>1M</b></div>
+          <div class="stage-chip chip-a">A ≥ 0</div>
+          <div class="stage-chip chip-b">√(A²)=|A|</div>
+          <div class="stage-chip chip-c">S = 4,9t²</div>
+          <div class="stage-caption"><small>ĐẤU TRƯỜNG KIẾN THỨC</small><b>15 LEVELS</b></div>
+        </div>
+
+        <div class="start-card">
+          <div class="card-kicker">PLAYER SETUP <span>● READY</span></div>
+          <h2>Sẵn sàng lên ghế nóng?</h2>
+          <label for="playerName">Tên người chơi</label>
+          <input id="playerName" maxlength="20" placeholder="Nhập tên của bạn..." autocomplete="off" />
+          <button id="startBtn" class="primary-btn" type="button">BẮT ĐẦU THỬ THÁCH <span>➜</span></button>
+          <button id="guideBtn" class="secondary-btn guide-entry-btn" type="button"><span>?</span> HƯỚNG DẪN CHƠI <b>➜</b></button>
+          <button id="teacherEntryBtn" class="secondary-btn" type="button"><span>◆</span> CHẾ ĐỘ GIÁO VIÊN <b>➜</b></button>
+          <small class="privacy-note">Tiến trình trong lượt chơi chỉ lưu trên trình duyệt của thiết bị.</small>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen game-screen">
+        <div class="game-layout">
+          <div class="arena-panel">
+            <div class="arena-top">
+              <div class="player-badge"><span>👤</span><div><small>NGƯỜI CHƠI</small><b id="playerLabel">PLAYER</b></div></div>
+              <div class="round-badge"><small>CÂU</small><b id="roundNumber">1</b><span>/15</span></div>
+              <div class="score-badge"><small>MỨC ĐIỂM</small><b id="scoreValue">100</b></div>
+            </div>
+
+            <div class="stage-visual" aria-hidden="true">
+              <div class="host-orb"><span>√</span><i></i></div>
+              <div class="pulse-floor"></div>
+            </div>
+
+            <div class="question-zone">
+              <div id="categoryLabel" class="category-label">CĂN BẬC HAI</div>
+              <div id="questionText" class="question-text"></div>
+              <div id="questionMath" class="question-math"></div>
+              <div id="lifelineReveal" class="lifeline-reveal hidden" aria-live="polite"></div>
+              <div id="answerGrid" class="answer-grid"></div>
+              <div id="feedbackBox" class="feedback-box" aria-live="polite"></div>
+              <div class="action-row">
+                <button id="confirmBtn" class="confirm-btn" type="button" disabled>CHỐT ĐÁP ÁN</button>
+                <button id="nextBtn" class="next-btn hidden" type="button">CÂU TIẾP THEO ➜</button>
+              </div>
+            </div>
+
+            <div class="lifeline-dock">
+              <div class="lifeline-title"><span>QUYỀN TRỢ GIÚP</span><small>Mỗi quyền dùng 1 lần trong lượt chơi</small></div>
+              <div class="lifeline-row">
+                <button id="fiftyBtn" class="lifeline life-fifty" type="button"><span class="life-icon">½</span><span class="life-label">50:50</span><small>Loại 2 đáp án sai</small></button>
+                <button id="advisorBtn" class="lifeline life-advisor" type="button"><span class="life-icon">✦</span><span class="life-label">CỐ VẤN</span><small>Gợi mở cách làm</small></button>
+                <button id="swapBtn" class="lifeline life-swap" type="button"><span class="life-icon">↻</span><span class="life-label">ĐỔI CÂU</span><small>Câu mới cùng mức</small></button>
+                <button id="pollBtn" class="lifeline life-poll" type="button"><span class="life-icon">▥</span><span class="life-label">BÌNH CHỌN</span><small>Xem thăm dò ảo</small></button>
+                <button id="shieldBtn" class="lifeline life-shield" type="button"><span class="life-icon">♢</span><span class="life-label">KHIÊN CƠ HỘI</span><small>Sai được chọn lại</small></button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="ladder-panel">
+            <div class="ladder-head"><span>◆</span><div><small>THANG ĐIỂM</small><b>1.000.000</b></div></div>
+            <div id="ladderList" class="ladder-list"></div>
+            <div class="safe-note">◆ Câu 5 & 10 là mốc an toàn</div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="teacherScreen" class="screen teacher-screen">
+        <div class="teacher-head">
+          <div><div class="eyebrow">TEACHER CONTROL</div><h2>Trung tâm Giáo viên</h2><p>Xem câu hỏi, đáp án, lời giải hoặc chạy Test nhanh không ảnh hưởng chế độ chơi.</p></div>
+          <button id="teacherBackBtn" class="secondary-btn compact" type="button">← QUAY LẠI</button>
+        </div>
+        <div class="teacher-tabs">
+          <button class="tab-btn active" data-tab="bank" type="button">NGÂN HÀNG CÂU HỎI</button>
+          <button class="tab-btn" data-tab="test" type="button">TEST NHANH</button>
+        </div>
+        <div id="teacherBank" class="teacher-panel active"></div>
+        <div id="teacherTest" class="teacher-panel"></div>
+      </section>
+    </main>
+
+    <div id="teacherPassModal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-card pass-card">
+        <div class="modal-gem">◆</div>
+        <h3>Chế độ Giáo viên</h3>
+        <p>Nhập mật khẩu để mở Trung tâm Giáo viên.</p>
+        <input id="teacherPass" type="password" inputmode="numeric" maxlength="8" placeholder="••••••••" />
+        <div id="passError" class="error-text"></div>
+        <div class="modal-actions"><button id="cancelPassBtn" class="secondary-btn compact" type="button">HỦY</button><button id="confirmPassBtn" class="primary-btn compact" type="button">MỞ KHÓA</button></div>
+      </div>
+    </div>
+
+    <div id="guideModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+      <div class="modal-card guide-card">
+        <div class="guide-hero">
+          <div class="modal-gem">?</div>
+          <div><div class="eyebrow">HOW TO PLAY</div><h3 id="guideTitle">Hướng dẫn chinh phục</h3><p>Vượt 15 câu hỏi tăng dần độ khó để chạm mốc <b>1.000.000 điểm</b>.</p></div>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step"><span>01</span><div><b>CHỌN ĐÁP ÁN</b><p>Mỗi câu có 4 phương án A, B, C, D. Bấm vào phương án bạn cho là đúng.</p></div></div>
+          <div class="guide-step"><span>02</span><div><b>CHỐT LỰA CHỌN</b><p>Sau khi chọn, bấm <strong>CHỐT ĐÁP ÁN</strong>. Khi đã chốt, bạn không thể đổi đáp án trừ khi có Khiên cơ hội.</p></div></div>
+          <div class="guide-step"><span>03</span><div><b>LEO THANG ĐIỂM</b><p>Trả lời đúng để lên câu tiếp theo. Câu 5 và câu 10 là <strong>mốc an toàn</strong>.</p></div></div>
+          <div class="guide-step"><span>04</span><div><b>CHINH PHỤC 15 CÂU</b><p>Vượt câu 15 để đạt danh hiệu cao nhất và mốc <strong>1.000.000 điểm</strong>.</p></div></div>
+        </div>
+        <div class="guide-lifelines">
+          <div class="guide-section-title"><span>5 QUYỀN TRỢ GIÚP</span><small>Mỗi quyền dùng 1 lần</small></div>
+          <div class="guide-life-grid">
+            <div><i>½</i><b>50:50</b><small>Loại 2 đáp án sai.</small></div>
+            <div><i>✦</i><b>Cố vấn</b><small>Gợi mở cách giải.</small></div>
+            <div><i>↻</i><b>Đổi câu</b><small>Đổi câu cùng mức.</small></div>
+            <div><i>▥</i><b>Bình chọn</b><small>Xem thăm dò tham khảo.</small></div>
+            <div><i>♢</i><b>Khiên cơ hội</b><small>Sai được chọn lại 1 lần.</small></div>
+          </div>
+        </div>
+        <div class="guide-shortcuts"><b>PHÍM TẮT</b><span><kbd>A</kbd><kbd>B</kbd><kbd>C</kbd><kbd>D</kbd> hoặc <kbd>1</kbd>–<kbd>4</kbd> để chọn</span><span><kbd>Enter</kbd> để chốt / sang câu tiếp theo</span></div>
+        <button id="closeGuideBtn" class="primary-btn" type="button">ĐÃ HIỂU – BẮT ĐẦU CHINH PHỤC</button>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-card settings-card">
+        <div class="modal-gem">♫</div>
+        <h3>Âm thanh</h3>
+        <label>Nhạc nền <span id="musicValue">72%</span></label>
+        <input id="musicSlider" type="range" min="0" max="100" value="72" />
+        <label>Hiệu ứng <span id="sfxValue">90%</span></label>
+        <input id="sfxSlider" type="range" min="0" max="100" value="90" />
+        <button id="closeSettingsBtn" class="primary-btn compact" type="button">XONG</button>
+      </div>
+    </div>
+
+    <div id="gameOverModal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-card result-card">
+        <div id="resultIcon" class="result-icon">🏆</div>
+        <div id="resultKicker" class="eyebrow">KẾT QUẢ</div>
+        <h3 id="resultTitle">Hoàn thành thử thách!</h3>
+        <div id="resultScore" class="result-score">1.000.000</div>
+        <p id="resultText"></p>
+        <div id="resultDetails" class="result-details"></div>
+        <div class="modal-actions"><button id="playAgainBtn" class="primary-btn" type="button">CHƠI LẠI</button><button id="resultHomeBtn" class="secondary-btn" type="button">TRANG CHỦ</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
